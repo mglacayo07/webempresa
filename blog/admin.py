@@ -8,11 +8,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class PostAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
-    list_display = ('title', 'author', 'published','post_categories')
+    list_display = ('title', 'author', 'published', 'post_categories')
     ordering = ('author', 'published')
     search_fields = ('title','content','author__username')
     date_hierarchy = 'published'
-    list_filter = ('author__username','categories__name')
+    list_filter = ('author__username', 'categories__name')
 
     def post_categories(self,obj):
         # si queremos regresar html podemos vititar el siguiente URL
@@ -22,4 +22,4 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Post, PostAdmin)
+admin.site.register(Post,PostAdmin)
