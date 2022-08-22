@@ -24,7 +24,7 @@ class Post(models.Model):
 
     author = models.ForeignKey(User, verbose_name="Autor", on_delete=models.CASCADE)  # models.CASCADE eliminará en cascada cuando se borre el usuario
 
-    categories = models.ManyToManyField(Category, verbose_name="Categorias")
+    categories = models.ManyToManyField(Category, verbose_name="Categorias", related_name="get_posts")
 
     created = models.DateTimeField(auto_now_add=True,verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now=True,verbose_name="Fecha de actualización")
