@@ -4,10 +4,8 @@ from .forms import ContactForms
 
 
 def contact(request):
-    print("Tipo de petición: {}".format(request.method))
     kw = { 'contact_form': ContactForms()}
     if request.method == "POST":
-        print("Entro por POST")
         kw['contact_form'] = ContactForms(data=request.POST)
         if kw['contact_form'].is_valid():
             name = request.POST.get('name','')
